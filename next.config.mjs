@@ -20,7 +20,12 @@ const nextConfig = {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
+    swcMinify: false // Disable SWC minification
   },
+  webpack: (config, { isServer }) => {
+    // Webpack configuration to handle platform-specific builds
+    return config
+  }
 }
 
 mergeConfig(nextConfig, userConfig)
